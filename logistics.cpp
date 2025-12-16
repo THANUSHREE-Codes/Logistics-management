@@ -13,7 +13,7 @@ namespace Logistics {
     const double DIMENSIONAL_FACTOR = 5000.0;
 }
 
-// ---------------- BASE CLASS ----------------
+
 class Package {
 protected:
     string trackingID, senderName, recipientName;
@@ -42,7 +42,7 @@ public:
 
 int Package::nextID = 1000;
 
-// ---------------- LETTER CLASS ----------------
+
 class Letter : public Package {
 public:
     Letter(double w, string s, string r) : Package(w, s, r) {}
@@ -57,7 +57,7 @@ public:
     }
 };
 
-// ---------------- BOX CLASS ----------------
+
 class Box : public Package {
     double l, w, h;
 public:
@@ -78,7 +78,7 @@ public:
     }
 };
 
-// ---------------- SHIPMENT CLASS ----------------
+
 class Shipment {
     vector<Package*> packages;
 public:
@@ -90,7 +90,7 @@ public:
         packages.push_back(p);
     }
 
-    // 🔍 SEARCH PACKAGE BY ID
+
     Package* searchByID(const string& id) const {
         for (auto p : packages) {
             if (p->getID() == id) {
@@ -100,7 +100,7 @@ public:
         return nullptr; // not found
     }
 
-    // ❌ REMOVE PACKAGE BY ID
+ 
     void removeByID(const string& id) {
         for (auto it = packages.begin(); it != packages.end(); ++it) {
             if ((*it)->getID() == id) {
@@ -215,3 +215,4 @@ int main() {
 
     return 0;
 }
+
